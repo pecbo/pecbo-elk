@@ -31,12 +31,12 @@ class elk::filebeat (
     enable  => true,
     require => Package['filebeat'],
   }
-#  file{'/etc/filebeat/filebeat.yml':
-#    ensure => file,
-#    content => epp('elk/filebeat.yml.epp',{
-#      prospectors     => $prospectors,
-#      logstash_server => $logstash_server,
-#      logstash_port   => $logstash_port,
-#      })
-#    }
+  file{'/etc/filebeat/filebeat.yml':
+    ensure => file,
+    content => epp('elk/filebeat.yml.epp',{
+      prospectors     => $prospectors,
+      logstash_server => $logstash_server,
+      logstash_port   => $logstash_port,
+      })
+    }
 }
